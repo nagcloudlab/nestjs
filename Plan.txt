@@ -1,0 +1,103 @@
+
+
+Introduction to JavaScript
+-------------------------------------
+
+why/where we need javascript language?
+--------------------------------------
+
+- full-stack-development
+
+    - frontend-development  ( browser-environment )
+    - backend-development ( Node.js environment )
+    +
+    - mobile-development ( React-Native, Ionic, NativeScript )
+    - desktop-development ( Electron.js )
+    - game-development ( Phaser.js, Babylon.js, Three.js )
+    - IoT-development ( Johnny-Five, Cylon.js )
+    - machine-learning-development ( TensorFlow.js, Brain.js )
+    - AR/VR-development ( A-Frame, AR.js )
+    
+
+What makes javascript so special?
+--------------------------------
+
+1. coding flexibility:
+    -> dynamic-typed 
+    -> functional-programming 
+    -> prototype-based OOP
+
+2. single-thread ( light-weight process )
+    -> non-blocking I/O operations ( asynchronous-programming )
+
+
+-----------------------------------------------------------    
+How to run javascript code?
+-----------------------------------------------------------
+
+-> javascript-engine / interpreter
+    
+   -> browser-environment
+
+   - Chrome ( v8 -> c++ ) 
+   - Firefox ( SpiderMonkey -> c++ )
+   - Safari ( JavaScriptCore -> c++ )
+   - Edge ( Chakra -> c++ )
+    
+
+   -> Node.js-environment
+      - Node.js ( v8 -> c++ )
+
+   -> other-environments
+      - MongoDB ( v8 -> c++ )   
+
+-----------------------------------------------------------
+javascript standards
+-----------------------------------------------------------
+
+javascript language is standardized 
+by ECMA International organization
+
+- popular versions : 
+    - ES5 ( 2009 )
+    - ES6 / ES2015 ( 2015 )
+    - ES7 / ES2016 ( 2016 )
+    - ES8 / ES2017 ( 2017 )
+    - ES9 / ES2018 ( 2018 )
+    - ES10 / ES2019 ( 2019 )
+    - ES11 / ES2020 ( 2020 )
+    - ES12 / ES2021 ( 2021 )
+    - ES13 / ES2022 ( 2022 )
+    - ES14 / ES2023 ( 2023 )
+    - ES15 / ES2024 ( 2024 )
+
+------------------------------------------------------------------    
+
+javascript & typescript
+------------------------
+level-1:
+    - data-types
+    - execution-context a.k.a scopes
+    - function(s)
+    - prototype-based OOP
+    - 'this' keyword / function-binding
+    - data-structures ( array , set , map )
+level-2:
+    - ES6 & ES7, Next.. features
+level-3:
+    - asynchronous-programming
+        - promise
+        - reactive/async programming with RxJS
+    - unit-testing   - jasmine & Jest 
+    - How javascript executes behind the scenes ( browser-envi | Node.js envi)
+
+-------------------------------------------
+- What makes Web-UI?
+- challneges with plain-javascript
+- javascript-frameworks/libraries
+    - angular
+-------------------------------------------
+- server-side-javascript ( Node.js )
+  -> express.js
+  -> nest.js
+-------------------------------------------    
