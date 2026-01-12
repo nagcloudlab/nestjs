@@ -17,13 +17,7 @@
     2. object / complex types
         a. object
         b. array
-        c. function
-        d. date
-        e. regex
-        f. map
-        g. set
-        h. weakmap
-        i. weakset
+        c. regexp
         .....
 
 
@@ -100,6 +94,7 @@ var sym1 = Symbol("mySymbol");
 
 var bigIntVar = 9007199254740991n;
 // console.log(typeof bigIntVar); // "bigint"
+
 
 
 //--------------------------------------------------------------

@@ -1,0 +1,12 @@
+
+
+
+-> problems with var keyword
+-> why we need let and const
+-> block-scope vs function scope
+-> execution context 
+-> function creation
+    -> function declaration vs function expression
+-> function parameters 
+-> child-function ( closure ) can access  parent-function variables 
+   even after parent-function execution is over  
