@@ -79,12 +79,11 @@ level-1:
     - data-types
     - execution-context a.k.a scope
     - function(s)
-    - FP-patterns
     - prototype-based OOP
     - 'this' keyword / function-binding
-    - data-structures ( array , set , map )
 level-2:
     - ES6 & ES7, Next.. features
+    - data-structures ( array , set , map )
 level-3:
     - asynchronous-programming
         - promise

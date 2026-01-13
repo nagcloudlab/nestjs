@@ -1,279 +1,615 @@
 "use strict";
 
+/**
+ * ═══════════════════════════════════════════════════════════════════════════════
+ *                           JAVASCRIPT DATA TYPES
+ * ═══════════════════════════════════════════════════════════════════════════════
+ *
+ * JavaScript is a dynamically typed language, meaning variables can hold
+ * values of any type without explicit type declarations.
+ *
+ * Data types are categorized into two main groups:
+ *
+ *   1. PRIMITIVE TYPES (Immutable, stored by value)
+ *      ├── undefined  - Variable declared but not assigned
+ *      ├── null       - Intentional absence of value
+ *      ├── string     - Textual data
+ *      ├── number     - Numeric data (integers & floats)
+ *      ├── boolean    - Logical true/false
+ *      ├── bigint     - Large integers beyond Number limits
+ *      └── symbol     - Unique identifiers (ES6)
+ *
+ *   2. REFERENCE TYPES (Mutable, stored by reference)
+ *      ├── Object     - Key-value collections
+ *      ├── Array      - Ordered collections
+ *      ├── Function   - Callable objects
+ *      ├── Date       - Date/time handling
+ *      └── RegExp     - Pattern matching
+ *
+ * ═══════════════════════════════════════════════════════════════════════════════
+ */
 
-/*
-    ------------------------------
-    data types in javascript
-    ------------------------------
-
-    1. value / primitive types
-        a. number
-        b. string
-        c. boolean
-        d. undefined
-        e. null
-        f. symbol
-        g. bigint
-    2. object / complex types
-        a. object
-        b. array
-        c. regexp
-        .....
+console.log("═".repeat(60));
+console.log("           JAVASCRIPT DATA TYPES");
+console.log("═".repeat(60));
 
 
-*/
+// ┌─────────────────────────────────────────────────────────────────────────────┐
+// │                        PART 1: PRIMITIVE TYPES                              │
+// └─────────────────────────────────────────────────────────────────────────────┘
 
-//--------------------------------------------------------------
-// 1. value / primitive types
-//--------------------------------------------------------------
+console.log("\n▶ PRIMITIVE TYPES\n");
 
-// a. number
+// ─────────────────────────────────────────────────────────────────────────────
+// 1.1 UNDEFINED
+// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * undefined represents a variable that has been declared but not yet assigned.
+ * It's JavaScript's way of saying "this exists, but has no value yet."
+ */
 
-var num1 = 42;
-// console.log(typeof num1); // "number"
+var uninitializedVar;
+console.log("Uninitialized variable:", uninitializedVar);        // undefined
+console.log("Type:", typeof uninitializedVar);                   // "undefined"
 
-var num2 = 3.14;
-// console.log(typeof num2); // "number"
+// Common scenarios where undefined appears:
+let obj = {};
+console.log("Missing property:", obj.nonExistent);               // undefined
 
-// b. string
+function noReturn() { /* no return statement */ }
+console.log("Function with no return:", noReturn());             // undefined
 
-var str1 = "Hello, World!";
-// console.log(typeof str1); // "string"
 
-var str2 = 'JavaScript is fun!';
-// console.log(typeof str2); // "string"
+// ─────────────────────────────────────────────────────────────────────────────
+// 1.2 NULL
+// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * null represents an intentional absence of value.
+ * Use null when you want to explicitly indicate "no value" or "empty".
+ *
+ * NOTE: typeof null returns "object" - this is a known JavaScript quirk/bug
+ * that exists for historical reasons and backward compatibility.
+ */
 
-var str3 = `Template literals are cool!`;   
-// console.log(typeof str3); // "string"
+let emptyValue = null;
+console.log("\nNull value:", emptyValue);                        // null
+console.log("Type of null:", typeof emptyValue);                 // "object" (quirk!)
 
-var my_name = "Alice";
-var greeting1 = "hello, " + my_name + "!";
-var greeting2 = `hello, ${my_name}!`;
-// console.log(greeting1); // "hello, Alice!"
-// console.log(greeting2); // "hello, Alice!"
-var dynamic_str = `The sum of 2 and 3 is ${2 + 3}.`;
+// Proper null check:
+console.log("Is null?", emptyValue === null);                    // true
 
-var multi_line_str = `This is line 1.
-This is line 2.
-This is line 3.`;
-// console.log(multi_line_str);
 
-var html_template = `
-<div>
-    <h1>Welcome to My Website</h1>
-    <p>This is a sample paragraph.</p>
-</div>
+// ─────────────────────────────────────────────────────────────────────────────
+// 1.3 STRING
+// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * Strings represent textual data. They can be created using:
+ *   - Single quotes: 'text'
+ *   - Double quotes: "text"
+ *   - Template literals: `text` (ES6) - supports interpolation & multi-line
+ */
+
+console.log("\n--- Strings ---");
+
+// Basic string declarations (single and double quotes are equivalent)
+var name = "Nag";
+var company = 'Cognizant';
+
+// String concatenation (traditional approach)
+var dynamicString1 = "The trainer " + name + " is teaching at " + company;
+console.log("Concatenation:", dynamicString1);
+
+// Template literals / String interpolation (ES6) - PREFERRED
+var dynamicString2 = `The trainer ${name} is teaching at ${company}`;
+console.log("Interpolation:", dynamicString2);
+
+// Expressions inside template literals
+var resultString = `The sum of 1 and 2 is ${1 + 2}`;
+console.log("With expression:", resultString);
+
+// Multi-line strings with template literals
+var multiLineString = `
+    <div>
+        <h1>${name}</h1>
+        <h4>${company}</h4>
+    </div>
 `;
-// console.log(html_template);
+console.log("Multi-line HTML:", multiLineString);
 
-// c. boolean
-
-var isTrue = true;
-// console.log(typeof isTrue); // "boolean"
-
-var isFalse = false;
-// console.log(typeof isFalse); // "boolean"
-
-// d. undefined
-
-var undefVar;
-// console.log(typeof undefVar); // "undefined"
-// console.log(undefVar);    // undefined
-
-// e. null
-
-var nullVar = null; // to express object absence
-// console.log(typeof nullVar);
-
-// e. symbol
-
-var sym1 = Symbol("mySymbol");
-// console.log(typeof sym1); // "symbol"
-
-// f. bigint
-
-var bigIntVar = 9007199254740991n;
-// console.log(typeof bigIntVar); // "bigint"
+// Useful string methods
+console.log("Length:", name.length);                             // 3
+console.log("Uppercase:", name.toUpperCase());                   // "NAG"
+console.log("Includes:", company.includes("Cog"));               // true
+console.log("Starts with:", company.startsWith("Cog"));          // true
 
 
+// ─────────────────────────────────────────────────────────────────────────────
+// 1.4 NUMBER
+// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * JavaScript has a single number type that handles both integers and
+ * floating-point values. It uses 64-bit floating-point format (IEEE 754).
+ *
+ * Safe integer range: -(2^53 - 1) to (2^53 - 1)
+ * Use BigInt for larger numbers.
+ */
 
-//--------------------------------------------------------------
-// 2. object / complex types
-//--------------------------------------------------------------
-/*
-    what is object?
-    -----------------
+console.log("\n--- Numbers ---");
 
-    -> data / information / properties / attributes -> State
-    -> actions / function / method -> Behavior
-    -> address in memory -> Identity
+var count = 12;
+var cost = 12.99;
+var negative = -42;
+var scientific = 2.5e6;                                          // 2,500,000
 
-    object = { state + behavior + identity }
+console.log("Integer:", count);
+console.log("Float:", cost);
+console.log("Scientific:", scientific);
 
-    How to create object in javascript?
-    ------------------------------------
+// Special numeric values
+console.log("Infinity:", 1 / 0);                                 // Infinity
+console.log("Negative Infinity:", -1 / 0);                       // -Infinity
+console.log("Not a Number:", "abc" / 2);                         // NaN
 
-    2 steps:
-    -> dynamic memory allocation => 'new' keyword
-    -> object initialization / object construction => constructor function
-
-    syntax:
-    ----------------
-    var objRefVar = new ConstructorFunction(arguments);
-    
-    example:
-    ----------------
-    var person1 = new Person("Alice", 30);
-    
-
-
-*/
-
-//It is a blueprint for creating objects.
+// Number validation
+console.log("Is finite?", Number.isFinite(100));                 // true
+console.log("Is NaN?", Number.isNaN(NaN));                       // true
+console.log("Is integer?", Number.isInteger(12.0));              // true
+console.log("Max safe integer:", Number.MAX_SAFE_INTEGER);       // 9007199254740991
 
 
-// way-1: using function constructor (pre-ES6)
-// function Person(name, age) {
-//     // state / properties / attributes
-//     this.name = name;
-//     this.age = age;
-// }
-// Person.prototype.sayName = function() {
-//     console.log(`My name is ${this.name}`);
-// };
-// Person.prototype.sayAge = function() {
-//     console.log(`I am ${this.age} years old`);
-// };
+// ─────────────────────────────────────────────────────────────────────────────
+// 1.5 BOOLEAN
+// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * Boolean represents logical values: true or false.
+ *
+ * IMPORTANT - Falsy Values (evaluate to false in boolean context):
+ *   - false
+ *   - 0, -0
+ *   - "" (empty string)
+ *   - null
+ *   - undefined
+ *   - NaN
+ *
+ * Everything else is truthy (including "0", "false", [], {})
+ *
+ * Reference: https://dorey.github.io/JavaScript-Equality-Table/
+ */
 
-// way-2: using class syntax (ES6 and later)
+console.log("\n--- Booleans ---");
+
+var isFinished = false;
+var isActive = true;
+
+console.log("Boolean value:", isFinished);
+
+// Demonstrating falsy values
+console.log("\nFalsy value checks:");
+console.log("Boolean(false):", Boolean(false));                  // false
+console.log("Boolean(0):", Boolean(0));                          // false
+console.log("Boolean(''):", Boolean(""));                        // false
+console.log("Boolean(null):", Boolean(null));                    // false
+console.log("Boolean(undefined):", Boolean(undefined));          // false
+console.log("Boolean(NaN):", Boolean(NaN));                      // false
+
+// Common gotchas - these are TRUTHY!
+console.log("\nTruthy gotchas:");
+console.log("Boolean('0'):", Boolean("0"));                      // true (non-empty string)
+console.log("Boolean('false'):", Boolean("false"));              // true (non-empty string)
+console.log("Boolean([]):", Boolean([]));                        // true (object)
+console.log("Boolean({}):", Boolean({}));                        // true (object)
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 1.6 BIGINT (ES2020)
+// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * BigInt handles integers larger than Number.MAX_SAFE_INTEGER.
+ * Create by appending 'n' to an integer or using BigInt() function.
+ *
+ * NOTE: BigInt cannot be mixed with regular numbers in operations.
+ */
+
+console.log("\n--- BigInt ---");
+
+var bigNumber = 1234567890123456789012345678901234567890n;
+var anotherBig = BigInt("9999999999999999999999999999");
+
+console.log("BigInt value:", bigNumber);
+console.log("Type:", typeof bigNumber);                          // "bigint"
+
+// BigInt operations (must use BigInt with BigInt)
+console.log("BigInt addition:", 100n + 200n);                    // 300n
+console.log("BigInt comparison:", 100n > 50n);                   // true
+
+// Cannot mix BigInt with Number
+// console.log(100n + 50);  // TypeError: Cannot mix BigInt and other types
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 1.7 SYMBOL (ES6)
+// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * Symbol creates unique identifiers. Each Symbol() call creates a new,
+ * unique value - even with the same description.
+ *
+ * Primary use case: Creating unique property keys to avoid collisions.
+ */
+
+console.log("\n--- Symbol ---");
+
+const sym1 = Symbol("id");
+const sym2 = Symbol("id");
+
+console.log("Symbol:", sym1);
+console.log("Are equal?", sym1 === sym2);                        // false (always unique!)
+
+// Using Symbol as object property key
+const user = {
+    name: "Nag",
+    [sym1]: "secret-123"
+};
+console.log("Symbol property:", user[sym1]);                     // "secret-123"
+
+
+// ┌─────────────────────────────────────────────────────────────────────────────┐
+// │                       PART 2: REFERENCE TYPES                               │
+// └─────────────────────────────────────────────────────────────────────────────┘
+
+console.log("\n" + "═".repeat(60));
+console.log("▶ REFERENCE TYPES (OBJECTS)");
+console.log("═".repeat(60));
+
+/**
+ * ┌────────────────────────────────────────────────────────────────────────────┐
+ * │                        WHAT IS AN OBJECT?                                  │
+ * ├────────────────────────────────────────────────────────────────────────────┤
+ * │                                                                            │
+ * │  An object is an entity with three characteristics:                        │
+ * │                                                                            │
+ * │  ┌──────────────┬──────────────────────────────────────────────────────┐   │
+ * │  │   STATE      │  Data/Attributes/Properties (what it HAS)           │   │
+ * │  ├──────────────┼──────────────────────────────────────────────────────┤   │
+ * │  │   BEHAVIOR   │  Functions/Methods/Operations (what it DOES)        │   │
+ * │  ├──────────────┼──────────────────────────────────────────────────────┤   │
+ * │  │   IDENTITY   │  Address/Location/Reference (WHERE it is in memory) │   │
+ * │  └──────────────┴──────────────────────────────────────────────────────┘   │
+ * │                                                                            │
+ * │  Example: Trainer Object                                                   │
+ * │  ├── State    : name, age, skill                                          │
+ * │  ├── Behavior : teach(), evaluate()                                       │
+ * │  └── Identity : memory address (reference)                                │
+ * │                                                                            │
+ * │  CLASS = Blueprint/Template for creating similar objects                   │
+ * │  INSTANCE = An object created from a class                                │
+ * │                                                                            │
+ * └────────────────────────────────────────────────────────────────────────────┘
+ */
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 2.1 CLASS DEFINITION - ES5 STYLE (Constructor Functions)
+// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * Before ES6, classes were created using constructor functions.
+ * Methods were added to the prototype for memory efficiency.
+ */
+
+console.log("\n--- ES5 Constructor Function ---");
+
+function PersonES5(name, age) {
+    // Instance properties (state)
+    this.name = name;
+    this.age = age;
+}
+
+// Instance methods (behavior) - added to prototype for efficiency
+PersonES5.prototype.sayName = function() {
+    console.log(`I'm ${this.name}`);
+};
+
+PersonES5.prototype.sayAge = function() {
+    console.log(`I'm ${this.age} years old`);
+};
+
+// Static method (belongs to class, not instances)
+PersonES5.species = "Homo Sapiens";
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 2.2 CLASS DEFINITION - ES6 STYLE (class keyword)
+// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * ES6 introduced the 'class' keyword - syntactic sugar over prototypes.
+ * Cleaner, more readable, and familiar to developers from other languages.
+ */
+
+console.log("\n--- ES6 Class Syntax ---");
 
 class Person {
-    // constructor function
+    // Static property (shared across all instances)
+    static species = "Homo Sapiens";
+    
+    // Constructor - initializes instance properties
     constructor(name, age) {
-        // state / properties / attributes
         this.name = name;
         this.age = age;
     }
-    // behavior / methods
+    
+    // Instance methods
     sayName() {
-        console.log(`My name is ${this.name}`);
+        console.log(`I'm ${this.name}`);
     }
-
+    
     sayAge() {
-        console.log(`I am ${this.age} years old`);
+        console.log(`I'm ${this.age} years old`);
+    }
+    
+    // Getter - computed property
+    get info() {
+        return `${this.name}, ${this.age} years old`;
+    }
+    
+    // Setter - controlled property assignment
+    set info(value) {
+        const [name, age] = value.split(",");
+        this.name = name.trim();
+        this.age = parseInt(age);
+    }
+    
+    // Static method (called on class, not instance)
+    static describe() {
+        return `Person is a class representing ${Person.species}`;
     }
 }
 
-// console.log(typeof Person); // "function"
 
-var p1= new Person("Alice", 30);
-var p2 = new Person("Bob", 25);
+// ─────────────────────────────────────────────────────────────────────────────
+// 2.3 OBJECT CREATION
+// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * Creating objects from a class involves two steps:
+ *
+ *   Step 1: Memory Allocation  → 'new' keyword allocates memory
+ *   Step 2: Initialization     → Constructor initializes properties
+ *
+ *   Syntax: const reference = new ClassName(arguments);
+ */
 
+console.log("\n--- Creating Objects ---");
 
-// important notes about objects in javascript
-// --------------------------------------------------
+const p1 = new Person("Nag", 36);
+const p2 = new Person("Indu", 31);
+const p3 = new Person("Ria", 4);
+const p4 = new Person("Dia", 2);
 
-// fact 1: by default, javascript objects are extensible
-// i.e we can add new properties and methods to an existing object
+// Using instance methods
+p1.sayName();                                                    // I'm Nag
+p1.sayAge();                                                     // I'm 36 years old
 
-// p1.gender = "female";
-// p1.sayGender = function() {
-//     console.log(`I am a ${this.gender}`);
-// };
+// Using getter
+console.log("Info (getter):", p1.info);                          // Nag, 36 years old
 
-// fact 2: javascript objects are configurable
-// i.e we can delete existing properties and methods from an object
+// Using setter
+p2.info = "Indu, 32";
+console.log("Updated info:", p2.info);                           // Indu, 32 years old
 
-// delete p2.age;
-
-// fact 3: javascript objects are mutable
-// i.e we can change the values of existing properties of an object
-
-// p1.age = 31;
-
-// Can we restrict these default behaviors of javascript objects?
-// Yes, we can use Object.preventExtensions(), Object.seal(), Object.freeze() methods 
-// to restrict these behaviors.
-
-// Example:
-
-
-// Object.preventExtensions(p1);
-// Object.seal(p1);
-// Object.freeze(p1);
-
-// console.log(Object.isExtensible(p1)); 
-// console.log(Object.isSealed(p1)); 
-// console.log(Object.isFrozen(p1));
-
-// p1.city = "New York"; // trying to add new property - error in strict mode
-// console.log(p1); // city property won't be added
-// delete p1.name; // trying to delete existing property - error in strict mode
-// p1.age = 32; // trying to modify existing property - error in strict mode
+// Using static members (on class, not instance)
+console.log("Species:", Person.species);                         // Homo Sapiens
+console.log("Description:", Person.describe());
 
 
-// how to access object properties and methods?
-// --------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// 2.4 OBJECT EXTENSIBILITY, SEALING, AND FREEZING
+// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * JavaScript objects are dynamic by default. You can control this behavior:
+ *
+ * ┌───────────────────────┬─────────────┬─────────────┬─────────────┐
+ * │ Method                │ Add Props   │ Delete Props│ Modify Props│
+ * ├───────────────────────┼─────────────┼─────────────┼─────────────┤
+ * │ Default               │     ✓       │      ✓      │      ✓      │
+ * │ preventExtensions()   │     ✗       │      ✓      │      ✓      │
+ * │ seal()                │     ✗       │      ✗      │      ✓      │
+ * │ freeze()              │     ✗       │      ✗      │      ✗      │
+ * └───────────────────────┴─────────────┴─────────────┴─────────────┘
+ */
 
-// dot notation
-// p1.sayName();
-// p2.sayAge();
+console.log("\n--- Object Mutability Control ---");
 
-// bracket notation
-// p1['sayName']();
-// p2['sayAge']();
+// Example: Extensibility
+const extObj = { a: 1 };
+console.log("Is extensible?", Object.isExtensible(extObj));      // true
+Object.preventExtensions(extObj);
+extObj.b = 2;                                                    // Silently fails (or throws in strict)
+console.log("After preventExtensions:", extObj);                 // { a: 1 }
 
-// --------------------------------------------------
-// javascript built-in object types
-// --------------------------------------------------
+// Example: Sealing
+const sealedObj = { x: 10, y: 20 };
+Object.seal(sealedObj);
+console.log("Is sealed?", Object.isSealed(sealedObj));           // true
+sealedObj.x = 100;                                               // ✓ Modification allowed
+sealedObj.z = 30;                                                // ✗ Addition blocked
+delete sealedObj.y;                                              // ✗ Deletion blocked
+console.log("Sealed object:", sealedObj);                        // { x: 100, y: 20 }
 
-// a. Object
-// b. Array
-// c. Function
-// d. Date
-// e. RegExp
-// f. Map
-// g. Set
-// h. WeakMap
-// i. WeakSet
-// .....
+// Example: Freezing (complete immutability)
+const frozenObj = { name: "Frozen", value: 42 };
+Object.freeze(frozenObj);
+console.log("Is frozen?", Object.isFrozen(frozenObj));           // true
+frozenObj.name = "Changed";                                      // ✗ Blocked
+frozenObj.newProp = "test";                                      // ✗ Blocked
+delete frozenObj.value;                                          // ✗ Blocked
+console.log("Frozen object:", frozenObj);                        // { name: "Frozen", value: 42 }
 
-// Literal ways to create objects of built-in object types
-//--------------------------------------------------
+// NOTE: freeze() is shallow - nested objects can still be modified
+const shallowFrozen = { nested: { value: 1 } };
+Object.freeze(shallowFrozen);
+shallowFrozen.nested.value = 999;                                // ✓ Still works!
+console.log("Shallow freeze gotcha:", shallowFrozen.nested);     // { value: 999 }
 
-// Example: a. Object
-var trainer = new Object(); // traditional way
-trainer.name = "Nag";
-trainer.age = 42;
-trainer.doTeach = function() {
-    console.log("teaching...");
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 2.5 PROPERTY ACCESS - DOT vs BRACKET NOTATION
+// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * Two ways to access object properties:
+ *
+ *   1. Dot notation     : obj.property      (clean, most common)
+ *   2. Bracket notation : obj["property"]   (required for special keys)
+ *
+ * Use bracket notation when:
+ *   - Property name has spaces or special characters
+ *   - Property name starts with a number
+ *   - Property name is stored in a variable
+ */
+
+console.log("\n--- Property Access ---");
+
+class Employee {
+    constructor(name, age, address) {
+        this.name = name;
+        this.age = age;
+        this["home-address"] = address;                          // Special character requires brackets
+        this["2024-salary"] = 50000;                             // Starts with number
+    }
 }
 
-// or
+const emp = new Employee("Nag", 36, "Chennai");
 
-var trainer={
+// Dot notation (standard)
+console.log("Name (dot):", emp.name);                            // Nag
+console.log("Age (dot):", emp.age);                              // 36
+
+// Bracket notation (required for special keys)
+console.log("Address (bracket):", emp["home-address"]);          // Chennai
+console.log("Salary (bracket):", emp["2024-salary"]);            // 50000
+
+// Dynamic property access using variable
+const propName = "name";
+console.log("Dynamic access:", emp[propName]);                   // Nag
+
+// Both notations work for standard properties
+console.log("Name (bracket):", emp["name"]);                     // Nag
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 2.6 OBJECT LITERALS (Quick Object Creation)
+// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * Object literals provide a concise way to create objects without classes.
+ * Ideal for configuration objects, data structures, and one-off objects.
+ */
+
+console.log("\n--- Object Literals ---");
+
+// Basic object literal
+const trainer = {
     name: "Nag",
-    age: 42,
-    doTeach: function() {
-        console.log("teaching...");
+    age: 36,
+    skills: ["JavaScript", "React", "Node.js"],
+    
+    // Method shorthand (ES6)
+    teach() {
+        console.log(`${this.name} is teaching ${this.skills.join(", ")}`);
+    },
+    
+    // Getter
+    get profile() {
+        return `${this.name} (${this.age})`;
     }
-} // object literal way
+};
+
+console.log("Trainer:", trainer.profile);
+trainer.teach();
+
+// ES6 Enhanced object literals
+const skill = "JavaScript";
+const level = "Expert";
+
+const certification = {
+    skill,                                                       // Shorthand: skill: skill
+    level,                                                       // Shorthand: level: level
+    ["cert-" + skill.toLowerCase()]: true,                       // Computed property name
+    validate() {                                                 // Method shorthand
+        return this.level === "Expert";
+    }
+};
+
+console.log("Certification:", certification);
 
 
-// Example: b. Array
-var fruits = new Array("Apple", "Banana", "Mango"); // traditional way
+// ─────────────────────────────────────────────────────────────────────────────
+// 2.7 TYPE CHECKING
+// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * Various ways to check types in JavaScript:
+ *
+ *   typeof        - Returns type as string (limited for objects)
+ *   instanceof    - Checks prototype chain
+ *   Array.isArray - Specifically for arrays
+ *   constructor   - Checks constructor function
+ */
 
-// or
+console.log("\n--- Type Checking ---");
 
-var fruits = ["Apple", "Banana", "Mango"]; // array literal way
+const arr = [1, 2, 3];
+const obj = { a: 1 };
+const fn = function() {};
+const date = new Date();
 
-// Example: c. RegExp
-var aadharPattern = new RegExp("\\d{4}-\\d{4}-\\d{4}"); // traditional way
-var isAadharValid = aadharPattern.test("1234-578-9123");
-console.log("isAadharValid:", isAadharValid);
+// typeof operator
+console.log("typeof 42:", typeof 42);                            // "number"
+console.log("typeof 'str':", typeof "str");                      // "string"
+console.log("typeof true:", typeof true);                        // "boolean"
+console.log("typeof undefined:", typeof undefined);              // "undefined"
+console.log("typeof null:", typeof null);                        // "object" (bug!)
+console.log("typeof []:", typeof arr);                           // "object"
+console.log("typeof {}:", typeof obj);                           // "object"
+console.log("typeof fn:", typeof fn);                            // "function"
 
-// or
+// instanceof operator
+console.log("\ninstanceof checks:");
+console.log("arr instanceof Array:", arr instanceof Array);       // true
+console.log("obj instanceof Object:", obj instanceof Object);     // true
+console.log("date instanceof Date:", date instanceof Date);       // true
+console.log("p1 instanceof Person:", p1 instanceof Person);       // true
 
-var aadharPattern = /\d{4}-\d{4}-\d{4}/; // regex literal way
-var isAadharValid = aadharPattern.test("1234-5678-9123");
-console.log("isAadharValid:", isAadharValid);
+// Array.isArray (safest way to check for arrays)
+console.log("\nArray.isArray:");
+console.log("Is array?", Array.isArray(arr));                    // true
+console.log("Is array?", Array.isArray(obj));                    // false
+
+
+// ┌─────────────────────────────────────────────────────────────────────────────┐
+// │                              SUMMARY                                        │
+// └─────────────────────────────────────────────────────────────────────────────┘
+/**
+ * ┌────────────────────────────────────────────────────────────────────────────┐
+ * │                         KEY TAKEAWAYS                                      │
+ * ├────────────────────────────────────────────────────────────────────────────┤
+ * │                                                                            │
+ * │  PRIMITIVES (7 types)                                                      │
+ * │  • Stored by VALUE - changes to copies don't affect originals              │
+ * │  • Immutable - operations create new values                                │
+ * │  • undefined, null, string, number, boolean, bigint, symbol                │
+ * │                                                                            │
+ * │  REFERENCE TYPES                                                           │
+ * │  • Stored by REFERENCE - multiple variables can point to same object       │
+ * │  • Mutable - changes affect all references                                 │
+ * │  • Objects, Arrays, Functions, Date, RegExp, etc.                          │
+ * │                                                                            │
+ * │  BEST PRACTICES                                                            │
+ * │  • Use const by default, let when reassignment needed                      │
+ * │  • Prefer template literals for string building                            │
+ * │  • Use === for comparisons (avoids type coercion)                          │
+ * │  • Use ES6 class syntax for OOP                                            │
+ * │  • Use Object.freeze() for true constants                                  │
+ * │  • Use Array.isArray() for array type checking                             │
+ * │                                                                            │
+ * └────────────────────────────────────────────────────────────────────────────┘
+ */
+
+console.log("\n" + "═".repeat(60));
+console.log("           END OF DATA TYPES MODULE");
+console.log("═".repeat(60));
