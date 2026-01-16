@@ -1,5 +1,5 @@
 
-
+// from es6 onwards, we can create classes using the 'class' keyword
 
 class Person {
     static companyName = "Tech Corp";

@@ -82,15 +82,14 @@ level-1:
     - prototype-based OOP
     - 'this' keyword / function-binding
 level-2:
-    - ES6 & ES7, Next.. features
     - data-structures ( array , set , map )
+    - ES6 & ES7, Next.. features
 level-3:
     - asynchronous-programming
         - promise
         - reactive/async programming with RxJS
     - unit-testing   - jasmine & Jest 
     - How javascript executes behind the scenes ( browser-envi | Node.js envi)
-
 -------------------------------------------
 - What makes Web-UI?
 - challneges with plain-javascript
