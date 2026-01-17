@@ -1,0 +1,17 @@
+{
+    "name": "play-with-javascript-level-3",
+    "version": "1.0.0",
+    "description": "Level 3 of Play with JavaScript",
+    "main": "index.js",
+    "type": "module",
+    "devDependencies": {
+        "html-webpack-plugin": "^5.6.6",
+        "webpack": "^5.104.1",
+        "webpack-cli": "^6.0.1",
+        "webpack-dev-server": "^5.2.3"
+    },
+    "scripts": {
+        "build": "webpack --mode production",
+        "start": "webpack serve --open --mode development"
+    }
+}

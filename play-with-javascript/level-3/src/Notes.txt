@@ -1,0 +1,37 @@
+
+
+// commonJS module standard ( third party recommended )
+//------------------------------------------------------
+
+-> every file is a module by default
+-> variables and functions declared in a module are scoped to that module
+   i.e they are not accessible outside the module unless explicitly exported
+-> to export a variable or function from a module, use module.exports or exports object
+-> to import a module, use require() function
+-> group related code into modules into packages for better organization and reusability
+
+-------------------------------------------------------
+imp-note: Node.js uses commonJS module standard 
+-------------------------------------------------------
+
+// ES6 module standard (native to JavaScript)
+-------------------------------------------------------
+
+-> every file is a module by default
+-> variables and functions declared in a module are scoped to that module
+   i.e they are not accessible outside the module unless explicitly exported
+-> to export a variable or function from a module, use export keyword
+-> to import a module, use import keyword
+-> group related code into modules into packages for better organization and reusability
+
+
+//-------------------------------------------------------
+
+for browser, module bundler(s)
+
+tools
+   -> webpack
+   -> rollup
+   -> parcel
+   -> esbuild
+   -> vite

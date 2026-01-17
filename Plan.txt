@@ -86,7 +86,7 @@ level-2:
     - ES6 & ES7, Next.. features
 level-3:
     - asynchronous-programming
-        - promise
+        - promise ( Es6 )
         - reactive/async programming with RxJS
     - unit-testing   - jasmine & Jest 
     - How javascript executes behind the scenes ( browser-envi | Node.js envi)
