@@ -1,0 +1,77 @@
+
+
+--------------------------------------------
+
+UI - data + style + interactivity
+Web-UI - html + css + js 
+
+
+--------------------------------------------
+HTML concepts:
+--------------------------------------------
+
+-> Semantic HTML5 Elements: <header>, <nav>, <section>, <article>, <footer>
+-> Meta Viewport Tag: Essential for RWD - <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-> Proper Document Structure: Logical hierarchy and organization
+-> Accessibility: Proper heading hierarchy, alt attributes, semantic elements
+
+--------------------------------------------
+CSS concepts:
+--------------------------------------------
+
+-> css selectors
+-> inline vs block vs inline-block
+-> box model: margin, border, padding, content
+-> layout techniques: 
+    - Flexbox -> 1D layout
+    - CSS Grid -> 2D layout
+    - Positioning (static, relative, absolute, fixed, sticky)
+    - Float and Clear
+-> Responsive Design: media queries, fluid grids, flexible images
+-> css pre-processors: SASS, LESS    
+-> css frameworks: bootstrap, tailwindcss 
+...
+
+--------------------------------------------
+1. CSS Reset & Box Sizing
+
+Universal reset with box-sizing: border-box
+Removes default margins and paddings
+
+--------------------------------------------
+2. CSS Custom Properties (Variables)
+
+Centralized theming with :root
+Easy maintenance and consistency
+
+--------------------------------------------
+3. Mobile-First Approach
+--------------------------------------------
+4. Responsive Breakpoints
+
+Mobile: < 768px (default)
+Tablet: 768px - 1023px
+Desktop: 1024px+
+Large Desktop: 1200px+
+
+--------------------------------------------
+5. Modern CSS Layout Techniques
+
+Flexbox: Header, navigation, product footer
+CSS Grid: Product grid, footer layout
+Aspect Ratio: Product images maintain 1:1 ratio
+
+--------------------------------------------
+6. Responsive Typography
+
+Relative units (rem, em)
+Scales naturally with viewport
+
+--------------------------------------------
+
+7. Hover Effects & Transitions
+
+Smooth animations using transition
+Transform effects for interactivity
+
+--------------------------------------------
