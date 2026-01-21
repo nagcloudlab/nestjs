@@ -1,77 +1,96 @@
 
 
---------------------------------------------
+UI = data + style + interactivity
+Web UI = HTML + CSS  -> static web pages
+         HTML + CSS + JavaScript -> dynamic web pages 
 
-UI - data + style + interactivity
-Web-UI - html + css + js 
+----------------------------------------------
+why we need JavaScript in web pages?
+----------------------------------------------       
+
+-> using browser provided APIs ( recommended w3c standards ), 
+JavaScript can make web pages dynamic and interactive
+
+e.g DOM, Timer,XHR/Fetch, Local Storage, etc
+    ref- https://developer.mozilla.org/en-US/docs/Web/API
+
+-> browser implemented these APIs and exposes them to JavaScript objects & functions
+
+using DOM api
+-------------
+-> can create/retreive/update/delete HTML elements 
+-> can modifle element's styles dynamically
+-> can listen to user events (click, hover, scroll, input, etc)
+
+using Timer api
+----------------
+-> can do actions on timer (setTimeout, setInterval)
+
+using XHR/Fetch api
+----------------------
+-> can communicate with web servers in the background 
+
+-> ...
 
 
---------------------------------------------
-HTML concepts:
---------------------------------------------
+-----------------------------------------------------------
+challenges with web UI development using plain JavaScript
+-----------------------------------------------------------
 
--> Semantic HTML5 Elements: <header>, <nav>, <section>, <article>, <footer>
--> Meta Viewport Tag: Essential for RWD - <meta name="viewport" content="width=device-width, initial-scale=1.0">
--> Proper Document Structure: Logical hierarchy and organization
--> Accessibility: Proper heading hierarchy, alt attributes, semantic elements
+-> browser compatibility issues
+-> too much boilerplate code
+-> many performance optimizations needed
+-> many memory management optimizations needed
+-> difficult to manage large code bases
+-> difficult to manage complex UIs
+-> difficult to manage state of the application
+-> difficult to do testing
+-> difficult to do reusability
 
---------------------------------------------
-CSS concepts:
---------------------------------------------
 
--> css selectors
--> inline vs block vs inline-block
--> box model: margin, border, padding, content
--> layout techniques: 
-    - Flexbox -> 1D layout
-    - CSS Grid -> 2D layout
-    - Positioning (static, relative, absolute, fixed, sticky)
-    - Float and Clear
--> Responsive Design: media queries, fluid grids, flexible images
--> css pre-processors: SASS, LESS    
--> css frameworks: bootstrap, tailwindcss 
-...
+-----------------------------------------------------------
+solutions: JavaScript UI Frameworks/Libraries
+-----------------------------------------------------------
 
---------------------------------------------
-1. CSS Reset & Box Sizing
 
-Universal reset with box-sizing: border-box
-Removes default margins and paddings
+-> jquery
 
---------------------------------------------
-2. CSS Custom Properties (Variables)
+mvc pattern based frameworks/libraries
+---------------------------------
+-> knockout.js
+-> ember.js
+-> dojo
+-> backbone.js
+-> angular.js (angular 1.x)
+....
 
-Centralized theming with :root
-Easy maintenance and consistency
+problem with mvc pattern based frameworks/libraries
+----------------------------------------------
+-> difficult to manage complex UIs
+-> difficult to manage state of the application
+-> difficult to do testing
+-> difficult to do reusability
 
---------------------------------------------
-3. Mobile-First Approach
---------------------------------------------
-4. Responsive Breakpoints
+-------------------------------------------
+modern solutions: component based frameworks/libraries
+-------------------------------------------
+-> react.js
+-> angular (angular 2+). ( our next topic )
+-> vue.js
+-> svelte
+-> lit-html
+....
 
-Mobile: < 768px (default)
-Tablet: 768px - 1023px
-Desktop: 1024px+
-Large Desktop: 1200px+
 
---------------------------------------------
-5. Modern CSS Layout Techniques
 
-Flexbox: Header, navigation, product footer
-CSS Grid: Product grid, footer layout
-Aspect Ratio: Product images maintain 1:1 ratio
+-------------------------------------------
+to be frontend developer
+-------------------------------------------
+-> strong html, css, javascript skills
+-> strong understanding of browser provided APIs
+-> strong understanding of web UI frameworks/libraries
+-> strong understanding of web performance optimizations
+-> strong understanding of web security
+-> strong understanding of testing methodologies
+-------------------------------------------
 
---------------------------------------------
-6. Responsive Typography
-
-Relative units (rem, em)
-Scales naturally with viewport
-
---------------------------------------------
-
-7. Hover Effects & Transitions
-
-Smooth animations using transition
-Transform effects for interactivity
-
---------------------------------------------
