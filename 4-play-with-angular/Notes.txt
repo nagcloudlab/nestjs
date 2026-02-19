@@ -1,0 +1,55 @@
+
+
+install angular cli
+npm install -g @angular/cli
+
+verify installation
+ng version
+
+
+create a new angular workspace
+ng new workspace1 --create-application=false
+
+cd into the workspace
+cd workspace1
+
+create a new angular application
+ng generate application shop-it-page
+
+
+start the development server
+cd projects/shop-it-page
+ng serve or npm start
+
+
+-------------------------------------------
+Angular Core Concepts:
+------------------------------------------
+
+1. data binding
+
+    a. interpolation
+        -> binding data from component class to template
+        in template
+        <h1>{{ expression }}</h1>
+
+    b. property binding
+        -> binding data from component class to template
+        in template
+        <img [src]="imageUrl" alt="Product Image">      
+
+    c. event binding
+        -> binding events from template to component class
+        in template
+        <button (click)="addToCart()">Add to Cart</button>
+
+
+2. directives
+
+   -> re-usable functionality that can be applied to elements in the template
+
+    a. structural directives
+        -> change the structure of the DOM by adding or removing elements
+        -> examples: *ngIf, *ngFor
+
+-------------------------------------------        

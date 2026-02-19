@@ -1,0 +1,42 @@
+<div class="container">
+  <div>
+    <h1 class="display-1">{{title}}</h1>
+  </div>
+  <hr />
+
+  <!-- <div *ngFor="let product of products">
+    <div class="row" *ngIf="product.isAvailable">
+      <div class="col-4">
+        <img [src]="product.imageUrl" [alt]="product.name" class="img-fluid" />
+      </div>
+      <div class="col-4">
+        <div>{{product.name}}</div>
+        <div>{{product.price}}</div>
+        <div>{{product.description}}</div>
+        <button (click)="addToCart($event, product)" class="btn btn-primary">Buy</button>
+      </div>
+    </div>
+  </div> -->
+
+  @for (product of products; track product.name) {
+  @if (product.isAvailable) {
+  <div class="row">
+    <div class="col-4">
+      <img [src]="product.imageUrl" [alt]="product.name" class="img-fluid" />
+    </div>
+    <div class="col-4">
+      <div>{{product.name}}</div>
+      <div>{{product.price}}</div>
+      <div>{{product.description}}</div>
+      <button (click)="addToCart($event, product)" class="btn btn-primary">Buy</button>
+    </div>
+  </div>
+  } @else {
+  <div>{{product.name}}</div>
+  <div>Item is not available</div>
+  }
+  } @empty {
+  <li>There are no items.</li>
+  }
+
+</div>
