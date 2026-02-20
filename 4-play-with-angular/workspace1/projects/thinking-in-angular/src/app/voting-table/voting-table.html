@@ -1,0 +1,28 @@
+<div class="m-3">
+    <div class="card">
+        <div class="card-header">Voting Results</div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Likes</th>
+                        <th>Dislikes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (votingLine of votingLines; track votingLine.item) {
+                    <tr>
+                        <td [ngClass]="{
+                            'table-success': votingLine.likes > votingLine.dislikes,
+                            'table-danger': votingLine.likes < votingLine.dislikes
+                        }">{{ votingLine.item }}</td>
+                        <td>{{ votingLine.likes }}</td>
+                        <td>{{ votingLine.dislikes }}</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

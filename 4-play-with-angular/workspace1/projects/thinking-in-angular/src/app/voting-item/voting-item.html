@@ -1,0 +1,16 @@
+<div class="m-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="display-4">{{ item }}</div>
+            <hr />
+            <div class="d-flex justify-content-around">
+                <button (click)="handleVote('like')" class="btn btn-primary">
+                    <i class="fa fa-thumbs-up"></i>
+                </button>
+                <button (click)="handleVote('dislike')" class="btn btn-secondary">
+                    <i class="fa fa-thumbs-down"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">Voting Box</div>
+        <div class="card-body">
+            <div class="d-flex justify-content-around flex-wrap">
+                @for (votingLine of votingLines; track votingLine.item) {
+                <app-voting-item [item]="votingLine.item" (vote)="handleVote($event)"></app-voting-item>
+                }
+            </div>
+            <hr />
+            <app-voting-table [votingLines]="votingLines"></app-voting-table>
+        </div>
+    </div>
+</div>

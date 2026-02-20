@@ -1,25 +1,24 @@
 
 
 install angular cli
-npm install -g @angular/cli
+>npm install -g @angular/cli
 
 verify installation
-ng version
-
+>ng version
 
 create a new angular workspace
-ng new workspace1 --create-application=false
+>ng new workspace1 --create-application=false
 
 cd into the workspace
-cd workspace1
+>cd workspace1
 
 create a new angular application
-ng generate application shop-it-page
+>ng generate application shop-it-page
 
 
 start the development server
-cd projects/shop-it-page
-ng serve or npm start
+>cd projects/shop-it-page
+>ng serve or npm start
 
 
 -------------------------------------------
@@ -52,4 +51,38 @@ Angular Core Concepts:
         -> change the structure of the DOM by adding or removing elements
         -> examples: *ngIf, *ngFor
 
--------------------------------------------        
+    b. attribute directives
+        -> change the appearance or behavior of an element
+        -> examples: ngClass, ngStyle    
+
+------------------------------------------- 
+
+imp-note:
+When component's state changes, 
+Angular automatically updates the view to reflect the new state. 
+This is achieved through a process called 'change detection', which checks for changes in the component's data and updates the DOM accordingly.
+This allows developers to focus on managing the component's state without worrying about manually updating the view.
+
+
+------------------------------------------- 
+Angular component(s)
+--------------------------------------------
+
+definition:
+-> UI-fragment that encapsulates its own structure, style, and behavior.
+ e.g . header, footer, product-card, shopping-cart, etc.
+
+
+https://docs.google.com/presentation/d/1NmBXZC3gEfwSP0pfg3XDxzkElWyWXtsUPjeaX_RJZ0Q/edit?usp=sharing
+https://react.dev/learn/thinking-in-react
+
+--------------------------------------------
+
+> cd workspace1
+> ng generate application thinking-in-angular
+> npm start --project thinking-in-angular
+
+> cd workspace1
+> ng generate component voting-box --project thinking-in-angular
+> ng generate component vote-item --project thinking-in-angular
+> ng generate component vote-table --project thinking-in-angular
