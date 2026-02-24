@@ -1,0 +1,14 @@
+<div class="list-group">
+    @for (p of products; track p.name) {
+    @if (p.isAvailable) {
+    <div class="list-group-item">
+        <app-product (buy)="addToCart($event)" [value]="p"></app-product>
+    </div>
+    } @else {
+    <div>{{p.name}}</div>
+    <div>Item is not available</div>
+    }
+    } @empty {
+    <li>There are no items.</li>
+    }
+</div>

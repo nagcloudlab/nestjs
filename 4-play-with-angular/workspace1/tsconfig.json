@@ -34,6 +34,12 @@
     },
     {
       "path": "./projects/thinking-in-angular/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/shop-it-page-v2/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/shop-it-page-v2/tsconfig.spec.json"
     }
   ]
 }

@@ -1,0 +1,36 @@
+:host {
+    display: inline-block;
+}
+
+.cart-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem 0.5rem 0.85rem;
+    font-weight: 600;
+}
+
+.cart-icon {
+    font-size: 1.05rem;
+}
+
+.cart-text {
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.cart-count {
+    position: absolute;
+    top: -0.45rem;
+    right: -0.45rem;
+    min-width: 1.35rem;
+    height: 1.35rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    line-height: 1;
+    padding: 0 0.35rem;
+}

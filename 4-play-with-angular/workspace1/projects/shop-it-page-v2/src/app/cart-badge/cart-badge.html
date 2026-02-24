@@ -1,0 +1,9 @@
+<button type="button" class="btn btn-light border rounded-pill shadow-sm cart-button">
+    <span class="d-inline-flex align-items-center gap-2">
+        <i class="fa fa-shopping-cart cart-icon" aria-hidden="true"></i>
+        <span class="cart-text">Cart</span>
+    </span>
+    <span class="badge rounded-pill cart-count" [class.bg-danger]="value > 0" [class.bg-secondary]="value === 0">
+        {{ value }}
+    </span>
+</button>

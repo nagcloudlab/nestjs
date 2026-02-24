@@ -1,0 +1,26 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (cartLine of cart; track cartLine.name) {
+        <tr>
+            <td>{{cartLine.name}}</td>
+            <td>{{cartLine.price}}</td>
+            <td>{{cartLine.quantity}}</td>
+            <td>{{cartLine.totalPrice}}</td>
+        </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-end">Time:</td>
+            <td>{{currentTime()}}</td>
+        </tr>
+    </tfoot>
+</table>

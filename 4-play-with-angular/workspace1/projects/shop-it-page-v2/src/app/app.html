@@ -1,0 +1,13 @@
+<div class="container">
+  <app-navbar [title]="title"></app-navbar>
+  <hr />
+  <app-cart-badge [value]="cart.length"></app-cart-badge>
+  <hr />
+  <button class="btn btn-primary mb-3" (click)="toggleCartTable()">Toggle Cart Table</button>
+  <hr />
+  @if (isCartTableVisible){
+  <app-cart-table [value]="cart"></app-cart-table>
+  }
+  <hr />
+  <app-product-list (buy)="addToCart($event)"></app-product-list>
+</div>

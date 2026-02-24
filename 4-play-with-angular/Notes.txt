@@ -86,3 +86,26 @@ https://react.dev/learn/thinking-in-react
 > ng generate component voting-box --project thinking-in-angular
 > ng generate component vote-item --project thinking-in-angular
 > ng generate component vote-table --project thinking-in-angular
+
+
+---------------------------------------------
+
+cd workspace1
+ng generate application shop-it-page-v2
+ng generate component product-list --project shop-it-page-v2
+ng generate component product --project shop-it-page-v2
+ng generate component navbar --project shop-it-page-v2
+ng generate component cart-badge --project shop-it-page-v2
+ng generate component cart-table --project shop-it-page-v2
+ng generate component review --project shop-it-page-v2
+
+---------------------------------------------
+
+Componet Lifecycle
+-------------------------------
+
+Hooks:
+
+    -> constructor -> called when the component is instantiated.
+    -> ngOnChanges -> called when any data-bound property of a directive changes.
+    -> ngOnInit -> called once the component is initialized.

@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-4">
+        <img [src]="product.imageUrl" [alt]="product.name" class="img-fluid" />
+    </div>
+    <div class="col-4">
+        <div>{{product.name}}</div>
+        <div>{{product.price}}</div>
+        <button (click)="addToCart($event, product)" class="btn btn-primary">Buy</button>
+        <ul class="nav nav-tabs mt-3">
+            <li class="nav-item">
+                <a (click)="handleTabChange($event,1)" [ngClass]="{'nav-link': true, 'active': isActiveTab(1)}"
+                    href="#">Description</a>
+            </li>
+            <li class="nav-item">
+                <a (click)="handleTabChange($event,2)" [ngClass]="{'nav-link': true, 'active': isActiveTab(2)}"
+                    href="#">Specification</a>
+            </li>
+            <li class="nav-item">
+                <a (click)="handleTabChange($event,3)" [ngClass]="{'nav-link': true, 'active': isActiveTab(3)}"
+                    href="#">Reviews</a>
+            </li>
+        </ul>
+        @if (isActiveTab(1)) {
+        <div>{{product.description}}</div>
+        } @else if (isActiveTab(2)) {
+        <div>Not Yet</div>
+        } @else if (isActiveTab(3)) {
+        <div>
+            @for(review of reviews; track review.author) {
+            <app-review [value]="review"></app-review>
+            }
+        </div>
+        }
+    </div>
+</div>
