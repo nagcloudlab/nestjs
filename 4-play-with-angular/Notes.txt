@@ -65,7 +65,7 @@ This allows developers to focus on managing the component's state without worryi
 
 
 ------------------------------------------- 
-Angular component(s)
+1.Components
 --------------------------------------------
 
 definition:
@@ -105,7 +105,62 @@ Componet Lifecycle
 -------------------------------
 
 Hooks:
-
     -> constructor -> called when the component is instantiated.
     -> ngOnChanges -> called when any data-bound property of a directive changes.
     -> ngOnInit -> called once the component is initialized.
+    -> ngOnDestroy -> called just before the component is destroyed.
+
+
+
+-----------------------------------    
+2.Directives
+-----------------------------------
+
+-> re-usable functionality that can be applied to elements in the template
+
+
+- structural directives
+    -> change the structure of the DOM by adding or removing elements
+    -> examples: *ngIf, *ngFor
+
+- attribute directives
+    -> change the appearance or behavior of an element
+    -> examples: ngClass, ngStyle
+
+
+custom directives
+    -> developers can create their own directives to encapsulate specific behavior or functionality that can be reused across multiple components. 
+
+e.g highlight directive that changes the background color of an element when hovered over.
+
+ng generate directive highlight --project shop-it-page-v2
+
+
+------------------------------------
+3.Pipes
+------------------------------------
+
+-> transform data in the template before it is displayed to the user.
+
+{{expression|pipeName:parameter1:parameter2}}
+
+custom pipes
+    -> developers can create their own pipes to encapsulate specific data transformation logic that can be reused across multiple components.
+
+example: price discount pipe that takes a price and a discount percentage and returns the discounted price.
+
+ng generate pipe price-discount --project shop-it-page-v2
+
+
+-------------------------------------
+4.Services
+-------------------------------------
+
+-> reusable logic that can be shared across multiple components.
+
+example: 
+
+a product service that fetches product data from an API and provides it to components that need it.
+a cart service that manages the state of the shopping cart and provides methods for adding, removing, and updating items in the cart.
+
+ng generate service cart-service --project shop-it-page-v3

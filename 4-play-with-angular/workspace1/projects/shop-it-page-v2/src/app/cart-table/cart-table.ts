@@ -1,8 +1,11 @@
 import { Component, Input, signal, SimpleChange, SimpleChanges } from '@angular/core';
+import { Highlight } from '../highlight';
 
 @Component({
   selector: 'app-cart-table',
-  imports: [],
+  imports: [
+    Highlight
+  ],
   templateUrl: './cart-table.html',
   styleUrl: './cart-table.css',
 })
@@ -30,10 +33,10 @@ export class CartTable {
     // when the component is initialized, this method will be called
     // to do any initialization logic that requires the component to be fully initialized
     // - backend api call to fetch data from NestJS server and populate the cart table
-    this.intervalId = setInterval(() => {
-      this.currentTime.set(new Date().toLocaleTimeString());
-      console.log("CartTable::setInterval::currentTime", this.currentTime);
-    }, 1000);
+    // this.intervalId = setInterval(() => {
+    //   this.currentTime.set(new Date().toLocaleTimeString());
+    //   console.log("CartTable::setInterval::currentTime", this.currentTime);
+    // }, 1000);
   }
 
   ngOnDestroy() {
@@ -42,9 +45,9 @@ export class CartTable {
     // to do any cleanup logic that requires the component to be fully destroyed
     // - cancel any pending backend api call to fetch data from NestJS server
     // - clear any setInterval or setTimeout
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-    }
+    // if (this.intervalId) {
+    //   clearInterval(this.intervalId);
+    // }
   }
 
 }

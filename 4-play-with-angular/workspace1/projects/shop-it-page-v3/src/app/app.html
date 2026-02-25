@@ -1,0 +1,11 @@
+<div class="container">
+  <app-navbar [title]="title"></app-navbar>
+  <hr />
+  <button class="btn btn-primary mb-3" (click)="toggleCartTable()">Toggle Cart Table</button>
+  <hr />
+  @if (isCartTableVisible){
+  <app-cart-table></app-cart-table>
+  }
+  <hr />
+  <app-product-list></app-product-list>
+</div>

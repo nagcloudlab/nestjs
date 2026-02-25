@@ -10,7 +10,7 @@
     <tbody>
         @for (cartLine of cart; track cartLine.name) {
         <tr>
-            <td>{{cartLine.name}}</td>
+            <td appHighlight>{{cartLine.name}}</td>
             <td>{{cartLine.price}}</td>
             <td>{{cartLine.quantity}}</td>
             <td>{{cartLine.totalPrice}}</td>
@@ -19,8 +19,8 @@
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="3" class="text-end">Time:</td>
-            <td>{{currentTime()}}</td>
+            <td colspan="3" class="text-end">Total:</td>
+            <td></td>
         </tr>
     </tfoot>
 </table>

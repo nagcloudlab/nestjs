@@ -1,0 +1,38 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (cartLine of cart; track cartLine.name) {
+        <tr>
+            <td appHighlight>{{cartLine.name}}</td>
+            <td>{{cartLine.price|currency:'INR'}}</td>
+            <td>
+                <div class="d-flex">
+                    <button (click)="updateQuantity(cartLine.id, -1)" class="btn btn-sm btn-secondary">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <div class="px-3">{{cartLine.quantity}}</div>
+                    <button (click)="updateQuantity(cartLine.id, 1)" class="btn btn-sm btn-secondary">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </td>
+            <td>{{cartLine.totalPrice|currency:'INR'}}</td>
+            <td><button (click)="deleteCartLine(cartLine.id)" class="btn btn-danger btn-sm">Delete</button></td>
+        </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-end">Total:</td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>

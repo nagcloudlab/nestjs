@@ -6,7 +6,8 @@
     <div class="col-4">
         <div>{{product.name|uppercase}} &mdash; <small>{{product.makeDate | date:'yyyy'}}</small></div>
         <div>{{product.price | priceDiscount:product.discount | currency:product.currencyType}}</div>
-        <button (click)="addToCart($event, product)" class="btn btn-primary">Buy</button>
+        <button [disabled]="isItemInCart" (click)="addToCart($event, product)" class="btn btn-primary">Buy</button>
+        <span *ngIf="isItemInCart" class="text-success ms-2">Already in Cart</span>
         <ul class="nav nav-tabs mt-3">
             <li class="nav-item">
                 <a (click)="handleTabChange($event,1)" [ngClass]="{'nav-link': true, 'active': isActiveTab(1)}"

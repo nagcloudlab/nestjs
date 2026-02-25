@@ -1,17 +1,18 @@
-import { CurrencyPipe, DatePipe, JsonPipe, NgClass, UpperCasePipe } from '@angular/common';
+import { CurrencyPipe, DatePipe, NgClass, NgIf, UpperCasePipe } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Review } from "../review/review";
 import { Highlight } from '../highlight';
 import { PriceDiscountPipe } from '../price-discount-pipe';
+import { CartService } from '../cart-service';
 
 @Component({
   selector: 'app-product',
   imports: [
+    NgIf,
     NgClass,
     Highlight,
     CurrencyPipe,
     UpperCasePipe,
-    JsonPipe,
     DatePipe,
     PriceDiscountPipe,
     Review
@@ -22,7 +23,11 @@ import { PriceDiscountPipe } from '../price-discount-pipe';
 export class Product {
 
   @Input("value") product: any; // input property
-  @Output() buy: EventEmitter<any> = new EventEmitter(); // output property
+  cart: any[] = [];
+  isItemInCart: boolean = false;
+
+  constructor(private cartService: CartService) {
+  }
 
   currentTab = 1; // state
   reviews: any[] = [
@@ -38,14 +43,20 @@ export class Product {
     }
   ];
 
+  ngOnInit() {
+    this.cartService.cart$.subscribe(cart => {
+      this.cart = cart;
+      this.isItemInCart = this.cart.some(item => item.id === this.product.id);
+    });
+  }
+
   // methods
   addToCart(event: PointerEvent, product: any) {
-    //console.log('Event:', event);
-    //console.log('Product:', product);
-    this.buy.emit({
+    this.cartService.addToCart({
       id: product.id,
       name: product.name,
-      price: product.price
+      price: product.price,
+      quantity: 1
     });
   }
 

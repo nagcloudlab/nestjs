@@ -40,6 +40,12 @@
     },
     {
       "path": "./projects/shop-it-page-v2/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/shop-it-page-v3/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/shop-it-page-v3/tsconfig.spec.json"
     }
   ]
 }

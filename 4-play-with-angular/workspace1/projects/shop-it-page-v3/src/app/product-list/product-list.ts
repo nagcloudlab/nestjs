@@ -12,7 +12,6 @@ import { NgClass } from '@angular/common';
 })
 export class ProductList {
 
-  @Output() buy: EventEmitter<any> = new EventEmitter(); // output property
 
   products: any[] = [
     {
@@ -39,9 +38,6 @@ export class ProductList {
     },
   ];
 
-  addToCart(product: any) {
-    this.buy.emit(product);
-  }
 
 
 
