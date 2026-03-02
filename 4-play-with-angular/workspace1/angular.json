@@ -2,30 +2,31 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": false
   },
   "newProjectRoot": "projects",
   "projects": {
-    "shop-it-page": {
+    "shop-it-page-v1": {
       "projectType": "application",
       "schematics": {},
-      "root": "projects/shop-it-page",
-      "sourceRoot": "projects/shop-it-page/src",
+      "root": "projects/shop-it-page-v1",
+      "sourceRoot": "projects/shop-it-page-v1/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "browser": "projects/shop-it-page/src/main.ts",
-            "tsConfig": "projects/shop-it-page/tsconfig.app.json",
+            "browser": "projects/shop-it-page-v1/src/main.ts",
+            "tsConfig": "projects/shop-it-page-v1/tsconfig.app.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "projects/shop-it-page/public"
+                "input": "projects/shop-it-page-v1/public"
               }
             ],
             "styles": [
-              "projects/shop-it-page/src/styles.css"
+              "projects/shop-it-page-v1/src/styles.css"
             ]
           },
           "configurations": {
@@ -56,7 +57,7 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "shop-it-page:build:production"
+              "buildTarget": "shop-it-page-v1:build:production"
             },
             "development": {
               "buildTarget": "shop-it-page:build:development"
@@ -249,6 +250,69 @@
             },
             "development": {
               "buildTarget": "shop-it-page-v3:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        }
+      }
+    },
+    "form-management": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/form-management",
+      "sourceRoot": "projects/form-management/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/form-management/src/main.ts",
+            "tsConfig": "projects/form-management/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/form-management/public"
+              }
+            ],
+            "styles": [
+              "projects/form-management/src/styles.css"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "form-management:build:production"
+            },
+            "development": {
+              "buildTarget": "form-management:build:development"
             }
           },
           "defaultConfiguration": "development"

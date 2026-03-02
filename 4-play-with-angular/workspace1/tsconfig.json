@@ -46,6 +46,12 @@
     },
     {
       "path": "./projects/shop-it-page-v3/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/form-management/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/form-management/tsconfig.spec.json"
     }
   ]
 }

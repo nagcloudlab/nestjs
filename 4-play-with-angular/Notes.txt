@@ -164,3 +164,26 @@ a product service that fetches product data from an API and provides it to compo
 a cart service that manages the state of the shopping cart and provides methods for adding, removing, and updating items in the cart.
 
 ng generate service cart-service --project shop-it-page-v3
+
+
+-----------------------------------------------
+
+How to manage forms in Angular?
+https://angular.dev/guide/forms
+
+
+Terms while working with forms:
+
+1. FormControl
+    -> represents a single form control, such as an input field or a select dropdown.
+    -> it tracks the value and validation status of the control.
+2. FormGroup
+    -> represents a group of form controls, such as a form with multiple input fields.
+    -> it tracks the value and validation status of the group as a whole.
+3. FormArray
+    -> represents an array of form controls, such as a list of items that can be dynamically added or removed.
+    -> it tracks the value and validation status of the array as a whole.
+    
+
+
+-----------------------------------------------

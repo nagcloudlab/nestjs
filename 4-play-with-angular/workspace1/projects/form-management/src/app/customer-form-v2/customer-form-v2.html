@@ -1,0 +1,165 @@
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                Customer Form - v2 ( Reactive Form )
+            </div>
+            <div class="card-body">
+                <form [formGroup]="customerFormGroup" (submit)="handleSubmit()">
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" formControlName="firstName" class="form-control" name="firstName"
+                            id="firstName" placeholder="Enter First Name">
+                        <div *ngIf="customerFormGroup.controls['firstName']?.invalid && customerFormGroup.controls['firstName']?.touched"
+                            class="text-danger">
+                            <div *ngIf="customerFormGroup.controls['firstName']?.errors?.['required']">
+                                First Name is required
+                            </div>
+                            <div *ngIf="customerFormGroup.controls['firstName']?.errors?.['minlength']">
+                                First Name should be at least 3 characters
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" formControlName="lastName" class="form-control" name="lastName" id="lastName"
+                            placeholder="Enter Last Name">
+                        <div *ngIf="customerFormGroup.controls['lastName']?.invalid && customerFormGroup.controls['lastName']?.touched"
+                            class="text-danger">
+                            <div *ngIf="customerFormGroup.controls['lastName']?.errors?.['required']">
+                                Last Name is required
+                            </div>
+                            <div *ngIf="customerFormGroup.controls['lastName']?.errors?.['minlength']">
+                                Last Name should be at least 3 characters
+                            </div>
+                        </div>
+                        <!-- Email & confirm email -->
+                        <div formGroupName="emailGroup">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" formControlName="email" class="form-control" name="email" id="email"
+                                    placeholder="Enter Email">
+                                <div *ngIf="customerFormGroup.get('emailGroup.email')?.invalid && customerFormGroup.get('emailGroup.email')?.touched"
+                                    class="text-danger">
+                                    <div *ngIf="customerFormGroup.get('emailGroup.email')?.errors?.['required']">
+                                        Email is required
+                                    </div>
+                                    <div *ngIf="customerFormGroup.get('emailGroup.email')?.errors?.['email']">
+                                        Please enter a valid email address
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmEmail" class="form-label">Confirm Email</label>
+                                <input type="email" formControlName="confirmEmail" class="form-control"
+                                    name="confirmEmail" id="confirmEmail" placeholder="Confirm Email">
+                                <div *ngIf="customerFormGroup.get('emailGroup.confirmEmail')?.invalid && customerFormGroup.get('emailGroup.confirmEmail')?.touched"
+                                    class="text-danger">
+                                    <div *ngIf="customerFormGroup.get('emailGroup.confirmEmail')?.errors?.['required']">
+                                        Confirm Email is required
+                                    </div>
+                                    <div *ngIf="customerFormGroup.get('emailGroup.confirmEmail')?.errors?.['email']">
+                                        Please enter a valid email address
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-danger">
+                        <div *ngIf="customerFormGroup.get('emailGroup')?.errors?.['emailMismatch']">
+                            Email and Confirm Email do not match
+                        </div>
+                    </div>
+                    <!-- phone -->
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" formControlName="phone" class="form-control" name="phone" id="phone"
+                            placeholder="Enter Phone">
+                    </div>
+                    <!-- Notification Preference ( email or phone by radio button ) -->
+                    <div class="mb-3">
+                        <label class="form-label">Notification Preference</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="notificationPreference"
+                                name="notificationPreference" id="notifyEmail" value="email">
+                            <label class="form-check-label" for="notifyEmail">Email</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="notificationPreference"
+                                name="notificationPreference" id="notifyPhone" value="phone">
+                            <label class="form-check-label" for="notifyPhone">Phone</label>
+                        </div>
+                    </div>
+                    <hr />
+                    <!-- button to add new address form group -->
+                    <button type="button" class="btn btn-secondary" (click)="addAddress()">Add Address</button>
+                    <hr />
+                    <!-- display address form groups -->
+                    <div formArrayName="addressArray">
+                        <div *ngFor="let addressGroup of addressArray; let i = index" [formGroupName]="i"
+                            class="border p-3 mb-3">
+                            <h5>Address {{ i + 1 }}</h5>
+                            <button type="button" class="btn-close float-end" aria-label="Close"
+                                (click)="removeAddress(i)"></button>
+                            <div class="mb-3">
+                                <label for="street" class="form-label">Street</label>
+                                <input type="text" formControlName="street" class="form-control" name="street"
+                                    id="street" placeholder="Enter Street">
+                            </div>
+                            <div class="mb-3">
+                                <label for="city" class="form-label">City</label>
+                                <input type="text" formControlName="city" class="form-control" name="city" id="city"
+                                    placeholder="Enter City">
+                            </div>
+                            <div class="mb-3">
+                                <label for="state" class="form-label">State</label>
+                                <input type="text" formControlName="state" class="form-control" name="state" id="state"
+                                    placeholder="Enter State">
+                            </div>
+                            <div class="mb-3">
+                                <label for="zipCode" class="form-label">Zip Code</label>
+                                <input type="text" formControlName="zip" class="form-control" name="zip" id="zipCode"
+                                    placeholder="Enter Zip Code">
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <button type="button" class="btn btn-success" (click)="loadCustomer()">Load Customer</button>
+                    &nbsp;
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <hr />
+        FormControl State(s) e.g firstName
+        <hr />
+        <pre>
+            is pristine: {{ customerFormGroup.controls['firstName']?.pristine }}
+            is dirty: {{ customerFormGroup.controls['firstName']?.dirty }}
+            is valid: {{ customerFormGroup.controls['firstName']?.valid }}
+            is invalid: {{ customerFormGroup.controls['firstName']?.invalid }}
+            is touched: {{ customerFormGroup.controls['firstName']?.touched }}
+            is untouched: {{ customerFormGroup.controls['firstName']?.untouched }}
+        </pre>
+        <hr />
+        Form State(s)
+        <hr />
+        <pre>
+            is pristine: {{ customerFormGroup.pristine }}
+            is dirty: {{ customerFormGroup.dirty }}
+            is valid: {{ customerFormGroup.valid }}
+            is invalid: {{ customerFormGroup.invalid }}
+            is touched: {{ customerFormGroup.touched }}
+            is untouched: {{ customerFormGroup.untouched }}
+        </pre>
+        <hr />
+        Form Value:
+        <hr />
+        <pre>
+            {{ customerFormGroup.value | json }}
+        </pre>
+    </div>
+</div>
