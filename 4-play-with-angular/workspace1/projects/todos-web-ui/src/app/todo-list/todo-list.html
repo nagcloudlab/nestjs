@@ -1,0 +1,7 @@
+<button class="btn btn-dark" (click)="toggleAll()">Toggle All</button>
+<br />
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let todo of filteredTodos">
+        <app-todo-item [todo]="todo"></app-todo-item>
+    </li>
+</ul>

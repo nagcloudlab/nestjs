@@ -1,0 +1,13 @@
+<div>
+    <div *ngIf="!isEditing" class="d-flex justify-content-between" [class.bg-success]="todo.completed"
+        [class.bg-light]="!todo.completed" style="padding: 0.5rem; border-radius: 0.25rem;">
+        <input type="checkbox" (change)="toggleComplete()" [checked]="todo.completed" class="form-check-input"
+            id="todo-item-1">
+        <label (dblclick)="toggleEdit()" class="form-check-label" for="todo-item-1">{{ todo.title }}</label>
+        <button (click)="deleteTodo()" type="button" class="btn-close" aria-label="Close"></button>
+    </div>
+
+    <div *ngIf="isEditing">
+        <input class="form-control" [value]="todo.title" (keyup)="handleKeyUp($event)" />
+    </div>
+</div>

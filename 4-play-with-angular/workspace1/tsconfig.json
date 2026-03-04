@@ -52,6 +52,18 @@
     },
     {
       "path": "./projects/form-management/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/todos-web-ui/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/todos-web-ui/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/routing-demo/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/routing-demo/tsconfig.spec.json"
     }
   ]
 }

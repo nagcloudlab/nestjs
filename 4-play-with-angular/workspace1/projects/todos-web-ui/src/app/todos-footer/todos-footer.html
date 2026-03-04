@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-between">
+    <span class="text-muted">{{leftCount}} items left</span>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/all">All</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/active">Active</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/completed">Completed</a>
+        </li>
+    </ul>
+    <button (click)="clearCompleted()" type="button" class="btn btn-link">Clear completed</button>
+</div>
