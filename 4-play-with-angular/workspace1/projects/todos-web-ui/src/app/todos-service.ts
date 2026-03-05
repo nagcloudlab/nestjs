@@ -6,13 +6,18 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class TodosService {
 
-  todos = [
-    { id: 1, title: 'Buy groceries', completed: false },
-    { id: 2, title: 'Walk the dog', completed: true },
-    { id: 3, title: 'Read a book', completed: false },
-  ];
+  todos: Array<any> = [];
 
   todos$ = new BehaviorSubject(this.todos);
+
+  fetchTodos() {
+    fetch("http://localhost:8080/api/v1/todos")
+      .then(response => response.json())
+      .then(data => {
+        this.todos = data;
+        this.todos$.next(this.todos);
+      });
+  }
 
   addTodo(title: string) {
     const newTodo = {

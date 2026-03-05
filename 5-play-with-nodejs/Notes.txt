@@ -1,0 +1,17 @@
+
+
+
+
+javascript + browser-apis + angular -> frontend development
+javascript + node-apis + express.js + nest.js -> backend development
+
+
+-----------------------------------
+
+Node.js
+
+-> javascript runtime built on Chrome's V8 JavaScript engine
+-> uses non-blocking, event-driven I/O model
+-> can build scalable network applications
+
+-------------------------------------------------
