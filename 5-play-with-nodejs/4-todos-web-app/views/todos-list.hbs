@@ -1,0 +1,62 @@
+<div class="py-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 col-xl-9">
+            <div class="card border-0 shadow-sm overflow-hidden">
+                <div class="card-header bg-primary text-white py-4">
+                    <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-2">
+                        <div>
+                            <h2 class="h3 mb-1">All Todos</h2>
+                            <p class="mb-0 text-white-50">Stay focused and track your daily progress</p>
+                        </div>
+                        <span class="badge bg-light text-primary fs-6 px-3 py-2">From MySQL Database</span>
+                    </div>
+                </div>
+
+                <div class="card-body p-0">
+                    {{#if todos.length}}
+                    <ul class="list-group list-group-flush">
+                        {{#each todos}}
+                        <li class="list-group-item py-3 px-4">
+                            <div class="d-flex align-items-start justify-content-between gap-3">
+                                <div class="d-flex align-items-start gap-3">
+                                    <div class="form-check mt-1">
+                                        <form action="/todos/{{this.id}}/toggle" method="POST" class="m-0">
+                                            <input class="form-check-input" type="checkbox" {{#if
+                                                this.completed}}checked{{/if}} onchange="this.form.submit()">
+                                        </form>
+                                    </div>
+                                    <div>
+                                        <h3
+                                            class="h6 mb-1 {{#if this.completed}}text-decoration-line-through text-muted{{/if}}">
+                                            {{this.title}}
+                                        </h3>
+                                        <p class="mb-0 text-muted small">{{this.description}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center gap-2">
+                                    {{#if this.completed}}
+                                    <span class="badge text-bg-success rounded-pill">Completed</span>
+                                    {{else}}
+                                    <span class="badge text-bg-warning rounded-pill">Pending</span>
+                                    {{/if}}
+
+                                    <form action="/todos/{{this.id}}/delete" method="POST" class="m-0">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    {{else}}
+                    <div class="text-center py-5 px-4">
+                        <h3 class="h5">No todos yet</h3>
+                        <p class="text-muted mb-0">Your task list is empty. Add your first todo to get started.</p>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
