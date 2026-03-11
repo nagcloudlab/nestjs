@@ -1,32 +1,3 @@
 
 
 
-
-javascript + browser-apis + angular -> frontend development
-javascript + node-apis + express.js + nest.js -> backend development
-
-
------------------------------------
-
-Node.js
-
--> javascript runtime built on Chrome's V8 JavaScript engine
--> uses non-blocking, event-driven I/O model
--> can build scalable network applications
-
--------------------------------------------------
-
--> Node.js -> javascript runtime
--> npm -> package manager for Node.js
--> Express.js -> web application framework for Node.js
-     => middleware, routing, templating, etc.
-----------------------------------------------------     
-
-
-Problems with traditional web applications:
-
--> on each request, server renders the entire page and sends it to client
--> leads to slow performance and poor user experience
--> this increases server load and bandwidth usage
-
-Solution: Single Page Applications (SPAs) using frontend frameworks like Angular, React, Vue.js

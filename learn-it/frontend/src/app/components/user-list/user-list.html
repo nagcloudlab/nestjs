@@ -1,0 +1,32 @@
+<div class="page">
+  <div class="page-header">
+    <h1>Users</h1>
+    <a class="btn btn-primary" routerLink="/users/new">Add User</a>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of users(); track user.id) {
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td><span class="badge" [attr.data-role]="user.role">{{ user.role }}</span></td>
+          <td class="actions">
+            <a class="btn btn-sm" [routerLink]="['/users', user.id, 'edit']">Edit</a>
+            <button class="btn btn-sm btn-danger" (click)="remove(user.id)">Delete</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

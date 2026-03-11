@@ -1,0 +1,34 @@
+<div class="page">
+  <h1>{{ isEdit ? 'Edit User' : 'New User' }}</h1>
+
+  <form class="form" [formGroup]="form" (ngSubmit)="save()">
+    <label class="field">
+      <span>Name</span>
+      <input formControlName="name" />
+    </label>
+
+    <label class="field">
+      <span>Email</span>
+      <input formControlName="email" type="email" />
+    </label>
+
+    <label class="field">
+      <span>Password</span>
+      <input formControlName="password" type="password" [placeholder]="isEdit ? '(leave blank to keep)' : ''" />
+    </label>
+
+    <label class="field">
+      <span>Role</span>
+      <select formControlName="role">
+        <option value="student">Student</option>
+        <option value="instructor">Instructor</option>
+        <option value="admin">Admin</option>
+      </select>
+    </label>
+
+    <div class="form-actions">
+      <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Save</button>
+      <a class="btn" routerLink="/users">Cancel</a>
+    </div>
+  </form>
+</div>

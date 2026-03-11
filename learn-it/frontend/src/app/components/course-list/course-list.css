@@ -1,0 +1,12 @@
+.badge[data-diff='beginner'] {
+  background: #dcfce7;
+  color: #16a34a;
+}
+.badge[data-diff='intermediate'] {
+  background: #fef9c3;
+  color: #a16207;
+}
+.badge[data-diff='advanced'] {
+  background: #fee2e2;
+  color: #dc2626;
+}

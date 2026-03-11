@@ -1,0 +1,41 @@
+<div class="page">
+  <div class="page-header">
+    <h1>Enrollments</h1>
+    <a class="btn btn-primary" routerLink="/enrollments/new">Enroll Student</a>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Student</th>
+        <th>Course</th>
+        <th>Enrolled At</th>
+        <th>Progress</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (e of enrollments(); track e.user_id + '-' + e.course_id) {
+        <tr>
+          <td>{{ e.user?.name ?? e.user_id }}</td>
+          <td>{{ e.course?.title ?? e.course_id }}</td>
+          <td>{{ e.enrolled_at | date:'mediumDate' }}</td>
+          <td class="progress-cell">
+            <input
+              type="number"
+              class="progress-input"
+              [ngModel]="e.progress"
+              (change)="updateProgress(e, $any($event.target).valueAsNumber)"
+              min="0"
+              max="100"
+            />
+            <span>%</span>
+          </td>
+          <td class="actions">
+            <button class="btn btn-sm btn-danger" (click)="unenroll(e)">Unenroll</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

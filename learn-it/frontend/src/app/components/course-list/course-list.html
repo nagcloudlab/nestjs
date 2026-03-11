@@ -1,0 +1,36 @@
+<div class="page">
+  <div class="page-header">
+    <h1>Courses</h1>
+    <a class="btn btn-primary" routerLink="/courses/new">Add Course</a>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Instructor</th>
+        <th>Category</th>
+        <th>Difficulty</th>
+        <th>Published</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (course of courses(); track course.id) {
+        <tr>
+          <td>{{ course.id }}</td>
+          <td>{{ course.title }}</td>
+          <td>{{ course.instructor?.name ?? '—' }}</td>
+          <td>{{ course.category ?? '—' }}</td>
+          <td><span class="badge" [attr.data-diff]="course.difficulty">{{ course.difficulty }}</span></td>
+          <td>{{ course.is_published ? 'Yes' : 'No' }}</td>
+          <td class="actions">
+            <a class="btn btn-sm" [routerLink]="['/courses', course.id, 'edit']">Edit</a>
+            <button class="btn btn-sm btn-danger" (click)="remove(course.id)">Delete</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

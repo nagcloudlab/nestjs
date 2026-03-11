@@ -1,0 +1,17 @@
+<div class="page">
+  <h1>Dashboard</h1>
+  <div class="cards">
+    <a class="card" routerLink="/users">
+      <span class="card-count">{{ userCount() }}</span>
+      <span class="card-label">Users</span>
+    </a>
+    <a class="card" routerLink="/courses">
+      <span class="card-count">{{ courseCount() }}</span>
+      <span class="card-label">Courses</span>
+    </a>
+    <a class="card" routerLink="/enrollments">
+      <span class="card-count">{{ enrollmentCount() }}</span>
+      <span class="card-label">Enrollments</span>
+    </a>
+  </div>
+</div>

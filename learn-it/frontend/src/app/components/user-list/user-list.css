@@ -1,0 +1,12 @@
+.badge[data-role='admin'] {
+  background: #fee2e2;
+  color: #dc2626;
+}
+.badge[data-role='instructor'] {
+  background: #dbeafe;
+  color: #2563eb;
+}
+.badge[data-role='student'] {
+  background: #dcfce7;
+  color: #16a34a;
+}

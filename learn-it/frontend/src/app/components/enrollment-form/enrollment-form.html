@@ -1,0 +1,30 @@
+<div class="page">
+  <h1>Enroll Student</h1>
+
+  <form class="form" [formGroup]="form" (ngSubmit)="save()">
+    <label class="field">
+      <span>Student</span>
+      <select formControlName="user_id">
+        <option [value]="0" disabled>Select student</option>
+        @for (s of students(); track s.id) {
+          <option [value]="s.id">{{ s.name }} ({{ s.email }})</option>
+        }
+      </select>
+    </label>
+
+    <label class="field">
+      <span>Course</span>
+      <select formControlName="course_id">
+        <option [value]="0" disabled>Select course</option>
+        @for (c of courses(); track c.id) {
+          <option [value]="c.id">{{ c.title }}</option>
+        }
+      </select>
+    </label>
+
+    <div class="form-actions">
+      <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Enroll</button>
+      <a class="btn" routerLink="/enrollments">Cancel</a>
+    </div>
+  </form>
+</div>

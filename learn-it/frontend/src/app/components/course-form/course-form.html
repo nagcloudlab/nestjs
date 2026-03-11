@@ -1,0 +1,49 @@
+<div class="page">
+  <h1>{{ isEdit ? 'Edit Course' : 'New Course' }}</h1>
+
+  <form class="form" [formGroup]="form" (ngSubmit)="save()">
+    <label class="field">
+      <span>Title</span>
+      <input formControlName="title" />
+    </label>
+
+    <label class="field">
+      <span>Description</span>
+      <textarea formControlName="description" rows="3"></textarea>
+    </label>
+
+    <label class="field">
+      <span>Instructor</span>
+      <select formControlName="instructor_id">
+        <option [value]="0" disabled>Select instructor</option>
+        @for (inst of instructors(); track inst.id) {
+          <option [value]="inst.id">{{ inst.name }}</option>
+        }
+      </select>
+    </label>
+
+    <label class="field">
+      <span>Category</span>
+      <input formControlName="category" />
+    </label>
+
+    <label class="field">
+      <span>Difficulty</span>
+      <select formControlName="difficulty">
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+      </select>
+    </label>
+
+    <label class="field checkbox">
+      <input type="checkbox" formControlName="is_published" />
+      <span>Published</span>
+    </label>
+
+    <div class="form-actions">
+      <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Save</button>
+      <a class="btn" routerLink="/courses">Cancel</a>
+    </div>
+  </form>
+</div>
