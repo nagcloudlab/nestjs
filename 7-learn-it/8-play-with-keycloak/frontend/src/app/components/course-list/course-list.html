@@ -1,0 +1,21 @@
+<h2>Available Courses</h2>
+
+<div class="course-grid">
+  @for (course of courses(); track course.id) {
+    <div class="course-card">
+      <div class="card-header">
+        <span class="badge badge-{{ course.difficulty }}">{{ course.difficulty }}</span>
+        <span class="category">{{ course.category }}</span>
+      </div>
+      <h3>{{ course.title }}</h3>
+      <p>{{ course.description }}</p>
+      <div class="card-footer">
+        @if (isEnrolled(course.id)) {
+          <button class="btn btn-enrolled" disabled>Enrolled</button>
+        } @else {
+          <button class="btn btn-enroll" (click)="enroll(course.id)">Enroll</button>
+        }
+      </div>
+    </div>
+  }
+</div>

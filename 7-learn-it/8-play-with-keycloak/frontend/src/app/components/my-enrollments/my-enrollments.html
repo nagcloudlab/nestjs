@@ -1,0 +1,22 @@
+<h2>My Enrollments</h2>
+
+@if (enrollments().length === 0) {
+  <p class="empty">You haven't enrolled in any courses yet.</p>
+} @else {
+  <div class="enrollment-list">
+    @for (enrollment of enrollments(); track enrollment.id) {
+      <div class="enrollment-card">
+        <div class="info">
+          <h3>{{ enrollment.course.title }}</h3>
+          <p>{{ enrollment.course.description }}</p>
+          <span class="meta">
+            Enrolled on {{ enrollment.enrolledAt | date: 'mediumDate' }}
+          </span>
+        </div>
+        <button class="btn btn-unenroll" (click)="unenroll(enrollment.courseId)">
+          Unenroll
+        </button>
+      </div>
+    }
+  </div>
+}

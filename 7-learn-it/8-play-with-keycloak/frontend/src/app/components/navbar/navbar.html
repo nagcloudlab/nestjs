@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <a routerLink="/courses" class="brand">LearnIt</a>
+
+  <div class="nav-links">
+    <a routerLink="/courses" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Courses</a>
+    @if (authenticated()) {
+      <a routerLink="/my-enrollments" routerLinkActive="active">My Enrollments</a>
+    }
+    @if (isAdmin()) {
+      <a routerLink="/courses/new" routerLinkActive="active">Add Course</a>
+    }
+  </div>
+
+  <div class="nav-actions">
+    @if (authenticated()) {
+      <span class="username">{{ username() }}</span>
+      <button class="btn btn-outline" (click)="logout()">Logout</button>
+    } @else {
+      <button class="btn btn-primary" (click)="login()">Login</button>
+    }
+  </div>
+</nav>

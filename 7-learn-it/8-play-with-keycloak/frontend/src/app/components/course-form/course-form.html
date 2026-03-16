@@ -1,0 +1,38 @@
+<h2>Create New Course</h2>
+
+<form (ngSubmit)="onSubmit()" class="course-form">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input id="title" type="text" [(ngModel)]="course.title" name="title" required />
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea id="description" [(ngModel)]="course.description" name="description" rows="4"></textarea>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="category">Category</label>
+      <input id="category" type="text" [(ngModel)]="course.category" name="category" />
+    </div>
+
+    <div class="form-group">
+      <label for="difficulty">Difficulty</label>
+      <select id="difficulty" [(ngModel)]="course.difficulty" name="difficulty">
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group checkbox">
+    <label>
+      <input type="checkbox" [(ngModel)]="course.isPublished" name="isPublished" />
+      Published
+    </label>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Create Course</button>
+</form>
